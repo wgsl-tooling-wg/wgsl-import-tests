@@ -1,0 +1,14 @@
+# dependency packages
+node_modules
+
+# built executable
+bin
+
+# macOS
+.DS_Store
+
+# vi temp files
+*.swp
+
+# typescript build info cache files 
+*.tsbuildinfo

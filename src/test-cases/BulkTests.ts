@@ -5,7 +5,7 @@ export const bulkTests: BulkTest[] = [
   {
     name: "webgpu-samples",
     baseDir: "webgpu-samples",
-    globInclude: ["*.wgsl"],
+    globInclude: ["**/*.wgsl"],
     exclude: ["skinnedMesh", "cornell"],
   },
   {

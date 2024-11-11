@@ -3,7 +3,7 @@
     "name": "webgpu-samples",
     "baseDir": "webgpu-samples",
     "globInclude": [
-      "*.wgsl"
+      "**/*.wgsl"
     ],
     "exclude": [
       "skinnedMesh",

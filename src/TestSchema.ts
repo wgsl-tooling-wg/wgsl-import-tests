@@ -8,3 +8,11 @@ export interface ParsingTest {
   src: string; 
   fails?: true;
 }
+
+export interface BulkTest {
+  name: string;           // human readable name of test set
+  baseDir: string;        // directory within https://github.com/wgsl-tooling-wg/community-wgsl 
+  exclude?: string[];     // exclude files containing these strings or regexes
+  include?: string[];     // names of test files inside of baseDir ('/' as separator for partial paths)
+  globInclude?: string[]; // glob patters of test files
+}

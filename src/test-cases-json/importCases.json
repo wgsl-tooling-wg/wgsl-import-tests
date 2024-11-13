@@ -30,7 +30,7 @@
   {
     "name": "imported fn calls support fn with root conflict",
     "src": {
-      "./main.wgsl": "\n        import foo from ./file1\n\n        fn main() { foo(); }\n        fn conflicted() { }\n      ",
+      "./main.wgsl": "\n        import ./file1/foo; \n\n        fn main() { foo(); }\n        fn conflicted() { }\n      ",
       "./file1.wgsl": "\n        export fn foo() {\n          conflicted(0);\n          conflicted(1);\n        }\n        fn conflicted(a:i32) {}\n      "
     }
   },

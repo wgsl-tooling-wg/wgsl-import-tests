@@ -69,7 +69,7 @@ export const importCases: WgslTestSrc[] = [
     name: `imported fn calls support fn with root conflict`,
     src: {
       "./main.wgsl": `
-        import foo from ./file1
+        import ./file1/foo; 
 
         fn main() { foo(); }
         fn conflicted() { }

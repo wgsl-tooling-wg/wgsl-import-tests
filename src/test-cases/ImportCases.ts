@@ -309,7 +309,7 @@ export const importCases: WgslTestSrc[] = [
           b: i32
         }
 
-        fn foo() -> AStruct {let a:AStruct; return a;}
+        fn foo() -> AStruct {var a:AStruct; return a;}
       `,
       "./file1.wgsl": `
         struct Base {

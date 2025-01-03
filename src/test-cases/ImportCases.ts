@@ -190,7 +190,7 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-  
+
   {
     name: "import support fn from two exports",
     src: {
@@ -235,7 +235,7 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-  
+
   {
     name: "import fn with support struct constructor",
     src: {
@@ -284,7 +284,7 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-  
+
   {
     name: "'import as' a struct",
     src: {
@@ -298,7 +298,7 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-  
+
   {
     name: "import a struct with name conflicting support struct",
     src: {
@@ -338,7 +338,24 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-  
+  {
+    name: "struct referenced by a fn param",
+    src: {
+      "./main.wgsl": `
+        import ./file1/foo
+
+        fn main() { foo(); }
+      `,
+      "./file1.wgsl": `
+        struct AStruct {
+          x: u32
+        }
+        fn foo(a: AStruct) { 
+          let b = a.x;
+        }
+      `,
+    },
+  },
   // {
   //   name: "",
   //   src: {
@@ -350,9 +367,6 @@ export const importCases: WgslTestSrc[] = [
   //     `,
   //   },
   // },
-  
-
-  
 ];
 
 export default importCases;

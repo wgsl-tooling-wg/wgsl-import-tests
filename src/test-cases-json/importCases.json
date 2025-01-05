@@ -132,7 +132,14 @@
     "name": "struct referenced by a fn param",
     "src": {
       "./main.wgsl": "\n        import ./file1/foo\n\n        fn main() { foo(); }\n      ",
-      "./file1.wgsl": "\n        struct AStruct {\n          x: u32\n        }\n        fn foo(a: AStruct) { \n          let b = a.x;\n        }\n      "
+      "./file1.wgsl": "\n        struct AStruct {\n          x: u32\n        }\n        fn foo(a: AStruct) {\n          let b = a.x;\n        }\n      "
+    }
+  },
+  {
+    "name": "const referenced by imported fn",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/foo\n\n        fn main() { foo(); }\n      ",
+      "./file1.wgsl": "\n        const conA = 7;\n\n        fn foo() {\n          let a = conA;\n        }\n      "
     }
   }
 ]

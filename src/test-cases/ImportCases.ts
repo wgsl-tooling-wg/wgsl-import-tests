@@ -350,8 +350,25 @@ export const importCases: WgslTestSrc[] = [
         struct AStruct {
           x: u32
         }
-        fn foo(a: AStruct) { 
+        fn foo(a: AStruct) {
           let b = a.x;
+        }
+      `,
+    },
+  },
+  {
+    name: "const referenced by imported fn",
+    src: {
+      "./main.wgsl": `
+        import ./file1/foo
+
+        fn main() { foo(); }
+      `,
+      "./file1.wgsl": `
+        const conA = 7;
+
+        fn foo() {
+          let a = conA;
         }
       `,
     },

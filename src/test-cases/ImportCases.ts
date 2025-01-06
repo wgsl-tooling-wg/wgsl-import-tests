@@ -373,6 +373,22 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
+  {
+    name: "fn call with a separator",
+    src: {
+      "./main.wgsl": `
+        import ./file1/foo
+
+        fn main() { foo::bar(); }
+      `,
+      "./file1/foo.wgsl": `
+        fn bar() { }
+      `,
+    },
+  },
+  
+
+  
   // {
   //   name: "",
   //   src: {

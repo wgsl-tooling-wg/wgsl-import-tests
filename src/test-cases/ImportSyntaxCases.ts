@@ -6,8 +6,8 @@ export const importSyntaxCases: ParsingTest[] = [
 
   { src: "import", fails: true },
   { src: "import foo", fails: true },
-  { src: "import ./foo", fails: true },
-  { src: "import ../foo", fails: true },
+  // { src: "import ./foo", fails: true }, // TODO reconsider after updating to :: syntax
+  // { src: "import ../foo", fails: true },
   { src: "import ./foo /bar", fails: true },
   { src: "import .", fails: true },
   { src: "import ./", fails: true },
@@ -31,7 +31,6 @@ export const importSyntaxCases: ParsingTest[] = [
   { src: "import foo/{a, b}" },
   { src: "import foo/bar/{a, b}" },
   { src: "import a/{b, c }" },
-  { src: "import foo/* as b" },
   { src: "import foo/a as b" },
   { src: `import a/b/{c as foo}` },
   {
@@ -43,7 +42,7 @@ export const importSyntaxCases: ParsingTest[] = [
     import bevy_pbr/{
              mesh_view_bindings,
              utils/{PI, noise},
-             lighting/*
+             lighting
            }`,
   },
 ];

@@ -386,7 +386,59 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-  
+  {
+    name: "local var to struct",
+    src: {
+      "./main.wgsl": `
+        import ./file1/AStruct;
+
+        fn main() {
+          var a: AStruct; 
+        }
+      `,
+      "./file1.wgsl": `
+        struct AStruct { x: u32 }
+      `,
+    },
+  },
+  {
+    name: "global var to struct",
+    src: {
+      "./main.wgsl": `
+        import ./file1/Uniforms;
+
+        @group(0) @binding(0) var<uniform> u: Uniforms;      
+      `,
+      "./file1.wgsl": `
+        struct Uniforms { model: mat4x4<f32> }
+      `,
+    },
+  },
+  {
+    name: "return type of function",
+    src: {
+      "./main.wgsl": `
+        import ./file1/A
+
+        fn b() -> A { }
+      `,
+      "./file1.wgsl": `
+        struct A { y: i32 }
+      `,
+    },
+  },
+
+  // {
+  //   name: "",
+  //   src: {
+  //     "./main.wgsl": `
+  //     `,
+  //     "./file1.wgsl": `
+  //     `,
+  //     "./file2.wgsl": `
+  //     `,
+  //   },
+  // },
 
   
   // {

@@ -141,5 +141,47 @@
       "./main.wgsl": "\n        import ./file1/foo\n\n        fn main() { foo(); }\n      ",
       "./file1.wgsl": "\n        const conA = 7;\n\n        fn foo() {\n          let a = conA;\n        }\n      "
     }
+  },
+  {
+    "name": "fn call with a separator",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/foo\n\n        fn main() { foo::bar(); }\n      ",
+      "./file1/foo.wgsl": "\n        fn bar() { }\n      "
+    }
+  },
+  {
+    "name": "local var to struct",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/AStruct;\n\n        fn main() {\n          var a: AStruct; \n        }\n      ",
+      "./file1.wgsl": "\n        struct AStruct { x: u32 }\n      "
+    }
+  },
+  {
+    "name": "global var to struct",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/Uniforms;\n\n        @group(0) @binding(0) var<uniform> u: Uniforms;      \n      ",
+      "./file1.wgsl": "\n        struct Uniforms { model: mat4x4<f32> }\n      "
+    }
+  },
+  {
+    "name": "return type of function",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/A\n\n        fn b() -> A { }\n      ",
+      "./file1.wgsl": "\n        struct A { y: i32 }\n      "
+    }
+  },
+  {
+    "name": "import a const",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/conA;\n\n        fn m() { let a = conA; }\n      ",
+      "./file1.wgsl": "\n        const conA = 11;\n      "
+    }
+  },
+  {
+    "name": "import an alias",
+    "src": {
+      "./main.wgsl": "\n        import ./file1/aliasA;\n\n        fn m() { let a: aliasA = 4; }\n      ",
+      "./file1.wgsl": "\n        alias aliasA = u32;\n      "
+    }
   }
 ]

@@ -8,14 +8,6 @@
     "fails": true
   },
   {
-    "src": "import ./foo",
-    "fails": true
-  },
-  {
-    "src": "import ../foo",
-    "fails": true
-  },
-  {
     "src": "import ./foo /bar",
     "fails": true
   },
@@ -87,9 +79,6 @@
     "src": "import a/{b, c }"
   },
   {
-    "src": "import foo/* as b"
-  },
-  {
     "src": "import foo/a as b"
   },
   {
@@ -99,6 +88,6 @@
     "src": "import ./foo/bar\n          fn main() {}"
   },
   {
-    "src": "\n    import bevy_pbr/{\n             mesh_view_bindings,\n             utils/{PI, noise},\n             lighting/*\n           }"
+    "src": "\n    import bevy_pbr/{\n             mesh_view_bindings,\n             utils/{PI, noise},\n             lighting\n           }"
   }
 ]

@@ -11,7 +11,7 @@ export const importCases: WgslTestSrc[] = [
           }
        `,
       "./bar.wgsl": `
-          export fn foo() { }
+          fn foo() { }
        `,
     },
   },
@@ -40,7 +40,7 @@ export const importCases: WgslTestSrc[] = [
         }
       `,
       "./file1.wgsl": `
-        export fn foo() { /* fooImpl */ }
+        fn foo() { /* fooImpl */ }
       `,
     },
   },
@@ -57,11 +57,11 @@ export const importCases: WgslTestSrc[] = [
         }
       `,
       "./file1.wgsl": `
-        export fn foo() { /* fooImpl */ }
+        fn foo() { /* fooImpl */ }
       `,
       "./file2.wgsl": `
         import ./file1/foo
-        export fn bar() { foo(); }
+        fn bar() { foo(); }
       `,
     },
   },
@@ -75,7 +75,7 @@ export const importCases: WgslTestSrc[] = [
         fn conflicted() { }
       `,
       "./file1.wgsl": `
-        export fn foo() {
+        fn foo() {
           conflicted(0);
           conflicted(1);
         }
@@ -93,7 +93,7 @@ export const importCases: WgslTestSrc[] = [
         fn main() { bar(); zap(); }
       `,
       "./file1.wgsl": `
-        export fn foo() { }
+        fn foo() { }
       `,
     },
   },
@@ -114,10 +114,10 @@ export const importCases: WgslTestSrc[] = [
       "./file1.wgsl": `
         import ./file2/grand
         
-        export fn mid() { grand(); }
+        fn mid() { grand(); }
       `,
       "./file2.wgsl": `
-        export fn grand() { /* grandImpl */ }
+        fn grand() { /* grandImpl */ }
       `,
     },
   },
@@ -134,8 +134,8 @@ export const importCases: WgslTestSrc[] = [
         }
       `,
       "./file1.wgsl": `
-        export fn foo() { }
-        export fn bar() { }
+        fn foo() { }
+        fn bar() { }
       `,
     },
   },
@@ -151,7 +151,6 @@ export const importCases: WgslTestSrc[] = [
         }
       `,
       "./file1.wgsl": `
-        export
         fn foo() {
           support();
         }
@@ -174,7 +173,7 @@ export const importCases: WgslTestSrc[] = [
       "./file1.wgsl": `
         import ./file2/bar
 
-        export fn foo() {
+        fn foo() {
           support();
           bar();
         }
@@ -182,7 +181,7 @@ export const importCases: WgslTestSrc[] = [
         fn support() { }
       `,
       "./file2.wgsl": `
-        export fn bar() {
+        fn bar() {
           support();
         }
 
@@ -203,11 +202,11 @@ export const importCases: WgslTestSrc[] = [
         }
       `,
       "./file1.wgsl": `
-        export fn foo() {
+        fn foo() {
           support();
         }
 
-        export fn bar() {
+        fn bar() {
           support();
         }
 
@@ -227,7 +226,7 @@ export const importCases: WgslTestSrc[] = [
           }
       `,
       "./file1.wgsl": `
-        export struct AStruct {
+        struct AStruct {
           x: u32,
         }
       `,
@@ -251,7 +250,7 @@ export const importCases: WgslTestSrc[] = [
           sum: u32
         }
 
-        export fn elemOne() -> Elem {
+        fn elemOne() -> Elem {
           return Elem(1u);
         }
       `,
@@ -273,12 +272,12 @@ export const importCases: WgslTestSrc[] = [
       "./file1.wgsl": `
         import ./file2/BStruct
 
-        export struct AStruct {
+        struct AStruct {
           s: BStruct,
         }
       `,
       "./file2.wgsl": `
-        export struct BStruct {
+        struct BStruct {
           x: u32,
         }
       `,
@@ -294,7 +293,7 @@ export const importCases: WgslTestSrc[] = [
         fn foo (a: AA) { }
       `,
       "./file1.wgsl": `
-        export struct AStruct { x: u32 }
+        struct AStruct { x: u32 }
       `,
     },
   },
@@ -316,7 +315,7 @@ export const importCases: WgslTestSrc[] = [
           x: u32
         }
 
-        export struct AStruct {
+        struct AStruct {
           x: Base
         }
       `,

@@ -427,6 +427,32 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
+  {
+    name: "import a const",
+    src: {
+      "./main.wgsl": `
+        import ./file1/conA;
+
+        fn m() { let a = conA; }
+      `,
+      "./file1.wgsl": `
+        const conA = 11;
+      `,
+    },
+  },
+  {
+    name: "import an alias",
+    src: {
+      "./main.wgsl": `
+        import ./file1/aliasA;
+
+        fn m() { let a: aliasA = 4; }
+      `,
+      "./file1.wgsl": `
+        alias aliasA = u32;
+      `,
+    },
+  },
 
   // {
   //   name: "",
@@ -440,7 +466,6 @@ export const importCases: WgslTestSrc[] = [
   //   },
   // },
 
-  
   // {
   //   name: "",
   //   src: {

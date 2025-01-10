@@ -452,18 +452,35 @@ export const importCases: WgslTestSrc[] = [
       `,
     },
   },
-
-  // {
-  //   name: "",
-  //   src: {
-  //     "./main.wgsl": `
-  //     `,
-  //     "./file1.wgsl": `
-  //     `,
-  //     "./file2.wgsl": `
-  //     `,
-  //   },
-  // },
+  {
+    name: "alias f32",
+    src: {
+      "./main.wgsl": `
+      import ./file1/foo;
+      fn main() { foo(); }
+      `,
+      "./file1.wgsl": `
+      struct AStruct { x: u32 }
+      alias f32 = AStruct;
+      fn foo(a: f32) { }
+      `,
+    },
+  },
+  {
+    name: "fn f32()",
+    src: {
+      "./main.wgsl": `
+      import ./file1/foo;
+      fn main() { foo(); }
+      `,
+      "./file1.wgsl": `
+      fn f32() { }
+      fn foo() { f32(); }
+      `,
+      "./file2.wgsl": `
+      `,
+    },
+  },
 
   // {
   //   name: "",
